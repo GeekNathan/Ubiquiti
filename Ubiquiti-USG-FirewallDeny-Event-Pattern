@@ -3,14 +3,14 @@
                 <rules>
                         <rule provider="ELSA" class='2' id='2'>
                                 <patterns>
-                                <pattern>[@ESTRING:s2:]@IN=@ESTRING:s1: @OUT=@ESTRING:s0: @@ESTRING:: SRC=@@IPv4:i1:@ DST=@IPv4:i3:@ @ESTRING::PROTO=@@ESTRING:i0: @SPT=@ESTRING:i2: @DPT=@ESTRING:i4: @@ANYSTRING@</pattern>
+                                <pattern>[@ESTRING:s2:-D]@IN=@ESTRING:s1: @OUT=@ESTRING:s0: @@ESTRING:: SRC=@@IPv4:i1:@ DST=@IPv4:i3:@ @ESTRING::PROTO=@@ESTRING:i0: @SPT=@ESTRING:i2: @DPT=@ESTRING:i4: @@ANYSTRING@</pattern>
                                 </patterns>
                         <examples>
                                 <example>
                                         <test_message program="kernel">[LAN_IN-2003-D]IN=eth1 OUT=pppoe0 MAC=80:2a:a8:cd:af:e0:40:8d:5c:4c:04:58:08:00 SRC=192.168.1.5 DST=209.222.18.218 LEN=70 TOS=0x00 PREC=0x00 TTL=127 ID=13532 PROTO=UDP SPT=41743 DPT=53 LEN=50</test_message>
                                         <test_value name="s0">pppoe0</test_value>
                                         <test_value name="s1">eth1</test_value>
-                                        <test_value name="s2">LAN_IN-2003-D</test_value>
+                                        <test_value name="s2">LAN_IN-2003</test_value>
                                         <test_value name="i0">UDP</test_value>
                                         <test_value name="i1">192.168.1.5</test_value>
                                         <test_value name="i2">41743</test_value>
