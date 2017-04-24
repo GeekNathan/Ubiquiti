@@ -1,0 +1,29 @@
+<ruleset name="UAPSSHDENY"> 
+  <pattern>dropbear</pattern> 
+                <rules> 
+                        <rule provider="ELSA" class='12' id='12'> 
+                                <patterns> 
+                                <pattern>Bad password attempt for '@ESTRING:s1:'@ from @ESTRING:i0::@@ESTRING:i1:@</pattern>
+				<pattern>Login attempt for nonexistent user from @ESTRING:i0::@@ESTRING:i1:@</pattern>
+				<pattern>Exit before auth (user '@ESTRING:s1:'@, 3 fails): Exited normally</pattern>
+                                </patterns> 
+                        <examples> 
+                                <example> 
+                                        <test_message program="dropbear">Bad password attempt for 'username' from 192.168.1.44:42884</test_message> 
+                                        <test_value name="s1">username</test_value> 
+                                        <test_value name="i0">192.168.1.44</test_value> 
+                                        <test_value name="i1">42884</test_value> 
+                                </example>
+				<example>
+					<test_message program="dropbear">Login attempt for nonexistent user from 192.168.1.44:38088</test_message>
+					<test_value name="i0">192.168.1.44</test_value> 
+                                        <test_value name="i1">38088</test_value>
+				</example>
+				<example>
+					<test_message program="dropbear">Exit before auth (user 'username', 3 fails): Exited normally</test_message>
+					<test_value name="s1">username</test_value> 
+                                </example>
+                        </examples> 
+                        </rule> 
+                </rules> 
+        </ruleset>
